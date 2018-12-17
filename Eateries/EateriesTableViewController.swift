@@ -10,9 +10,9 @@ import UIKit
 
 class EateriesTableViewController: UITableViewController {
     
-    let restaurantNames = ["Ogonёk Grill&Bar", "Елу", "Bonsai", "Дастархан", "Индокитай", "X.O", "Балкан Гриль", "Respublica", "Speak Easy", "Morris Pub", "Вкусные истории", "Классик", "Love&Life", "Шок", "Бочка"]
+    var restaurantNames = ["Ogonёk Grill&Bar", "Елу", "Bonsai", "Дастархан", "Индокитай", "X.O", "Балкан Гриль", "Respublica", "Speak Easy", "Morris Pub", "Вкусные истории", "Классик", "Love&Life", "Шок", "Бочка"]
     
-    let restaurantImages = ["ogonek.jpg", "elu.jpg", "bonsai.jpg", "dastarhan.jpg", "indokitay.jpg", "x.o.jpg", "balkan.jpg", "respublika.jpg", "speakeasy.jpg", "morris.jpg", "istorii.jpg", "klassik.jpg", "love.jpg", "shok.jpg", "bochka.jpg"]
+    var restaurantImages = ["ogonek.jpg", "elu.jpg", "bonsai.jpg", "dastarhan.jpg", "indokitay.jpg", "x.o.jpg", "balkan.jpg", "respublika.jpg", "speakeasy.jpg", "morris.jpg", "istorii.jpg", "klassik.jpg", "love.jpg", "shok.jpg", "bochka.jpg"]
     
     var restorauntIsVisited = [Bool](repeating: false, count: 15)
     override func viewDidLoad() {
@@ -55,7 +55,7 @@ class EateriesTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let ac = UIAlertController(title: nil, message: "Выберите действие", preferredStyle: .actionSheet)
-        let call = UIAlertAction(title: "Позвонить: +7(347)111-111\(index)", style: .default){
+        let call = UIAlertAction(title: "Позвонить: +7(347)111-111\(indexPath.row)", style: .default){
             (action: UIAlertAction) -> Void in
             
             let alertC = UIAlertController(title: nil, message: "Calling is down", preferredStyle: .alert)
@@ -82,7 +82,16 @@ class EateriesTableViewController: UITableViewController {
     }
   
     
-    
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        
+        if editingStyle == .delete {
+            self.restorauntIsVisited.remove(at: indexPath.row)
+            self.restaurantImages.remove(at: indexPath.row)
+            self.restaurantNames.remove(at: indexPath.row)
+        }
+        
+        tableView.deleteRows(at: [indexPath], with: .automatic )
+    }
     
   
 }
