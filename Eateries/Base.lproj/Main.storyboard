@@ -73,7 +73,7 @@
                                     <outlet property="nameLabel" destination="qVl-Hd-S95" id="V5f-YG-FWo"/>
                                     <outlet property="thumbnailImageView" destination="xCl-5S-1cd" id="aC6-9Y-7hF"/>
                                     <outlet property="typeLabel" destination="N8n-aW-sT3" id="Wx3-og-c0p"/>
-                                    <segue destination="8si-Mz-Qgd" kind="show" id="EXl-Ud-Dca"/>
+                                    <segue destination="8si-Mz-Qgd" kind="show" identifier="detailSegue" id="EXl-Ud-Dca"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -100,7 +100,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Gd7-YQ-dbW">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Gd7-YQ-dbW">
                                 <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                             </imageView>
                         </subviews>
