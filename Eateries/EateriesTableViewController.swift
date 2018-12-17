@@ -51,7 +51,7 @@ class EateriesTableViewController: UITableViewController {
         return cell
     }
     
-
+    
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let ac = UIAlertController(title: nil, message: "Выберите действие", preferredStyle: .actionSheet)
@@ -80,18 +80,37 @@ class EateriesTableViewController: UITableViewController {
         
         tableView.deselectRow(at: indexPath, animated: true)
     }
-  
     
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+    
+    //    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+    //
+    //        if editingStyle == .delete {
+    //            self.restorauntIsVisited.remove(at: indexPath.row)
+    //            self.restaurantImages.remove(at: indexPath.row)
+    //            self.restaurantNames.remove(at: indexPath.row)
+    //        }
+    //
+    //        tableView.deleteRows(at: [indexPath], with: .automatic )
+    //    }
+    
+    override func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
         
-        if editingStyle == .delete {
+        let share = UITableViewRowAction(style: .default, title: "Share") { (action, indexPath) in
+            let defaultText = "I am in " + self.restaurantNames[indexPath.row]
+            if let image = UIImage(named: self.restaurantImages[indexPath.row]){
+                let activityController = UIActivityViewController(activityItems: [defaultText, image], applicationActivities: nil)
+                self.present(activityController, animated: true, completion: nil)
+            }
+        }
+        let delete = UITableViewRowAction(style: .default, title: "Delete") { (action, indexPath) in
             self.restorauntIsVisited.remove(at: indexPath.row)
             self.restaurantImages.remove(at: indexPath.row)
             self.restaurantNames.remove(at: indexPath.row)
+            tableView.deleteRows(at: [indexPath], with: .automatic )
+            
         }
-        
-        tableView.deleteRows(at: [indexPath], with: .automatic )
+        share.backgroundColor = #colorLiteral(red: 0.2392156869, green: 0.6745098233, blue: 0.9686274529, alpha: 1)
+        delete.backgroundColor = #colorLiteral(red: 0.9098039269, green: 0.4784313738, blue: 0.6431372762, alpha: 1)
+        return [delete, share]
     }
-    
-  
 }
