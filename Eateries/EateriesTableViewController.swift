@@ -53,35 +53,35 @@ class EateriesTableViewController: UITableViewController {
     
     
     
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let ac = UIAlertController(title: nil, message: "Выберите действие", preferredStyle: .actionSheet)
-        let call = UIAlertAction(title: "Позвонить: +7(347)111-111\(indexPath.row)", style: .default){
-            (action: UIAlertAction) -> Void in
-            
-            let alertC = UIAlertController(title: nil, message: "Calling is down", preferredStyle: .alert)
-            let ok = UIAlertAction(title: "Ok", style: .default, handler: nil)
-            alertC.addAction(ok)
-            self.present(alertC, animated: true, completion: nil)
-        }
-        
-        let cancel = UIAlertAction(title: "Отмена", style: .cancel, handler: nil)
-        let isVisibleTitle = self.restorauntIsVisited[indexPath.row] ? "Я не был здесь" : " Я был здесь"
-        let isVisited = UIAlertAction(title: isVisibleTitle, style: .default) {
-            (action) in
-            let cell = tableView.cellForRow(at: indexPath)
-            
-            self.restorauntIsVisited[indexPath.row] = !self.restorauntIsVisited[indexPath.row]
-            cell?.accessoryType = self.restorauntIsVisited[indexPath.row] ? .checkmark : .none
-        }
-        ac.addAction(cancel)
-        ac.addAction(call)
-        ac.addAction(isVisited)
-        present(ac, animated: true, completion: nil)
-        
-        tableView.deselectRow(at: indexPath, animated: true)
-    }
+//    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+//        let ac = UIAlertController(title: nil, message: "Выберите действие", preferredStyle: .actionSheet)
+//        let call = UIAlertAction(title: "Позвонить: +7(347)111-111\(indexPath.row)", style: .default){
+//            (action: UIAlertAction) -> Void in
+//
+//            let alertC = UIAlertController(title: nil, message: "Calling is down", preferredStyle: .alert)
+//            let ok = UIAlertAction(title: "Ok", style: .default, handler: nil)
+//            alertC.addAction(ok)
+//            self.present(alertC, animated: true, completion: nil)
+//        }
+//
+//        let cancel = UIAlertAction(title: "Отмена", style: .cancel, handler: nil)
+//        let isVisibleTitle = self.restorauntIsVisited[indexPath.row] ? "Я не был здесь" : " Я был здесь"
+//        let isVisited = UIAlertAction(title: isVisibleTitle, style: .default) {
+//            (action) in
+//            let cell = tableView.cellForRow(at: indexPath)
+//
+//            self.restorauntIsVisited[indexPath.row] = !self.restorauntIsVisited[indexPath.row]
+//            cell?.accessoryType = self.restorauntIsVisited[indexPath.row] ? .checkmark : .none
+//        }
+//        ac.addAction(cancel)
+//        ac.addAction(call)
+//        ac.addAction(isVisited)
+//        present(ac, animated: true, completion: nil)
+//
+//        tableView.deselectRow(at: indexPath, animated: true)
+//    }
     
-    
+     
     //    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
     //
     //        if editingStyle == .delete {
