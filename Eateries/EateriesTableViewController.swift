@@ -14,6 +14,7 @@ class EateriesTableViewController: UITableViewController {
     
     let restaurantImages = ["ogonek.jpg", "elu.jpg", "bonsai.jpg", "dastarhan.jpg", "indokitay.jpg", "x.o.jpg", "balkan.jpg", "respublika.jpg", "speakeasy.jpg", "morris.jpg", "istorii.jpg", "klassik.jpg", "love.jpg", "shok.jpg", "bochka.jpg"]
     
+    var restorauntIsVisited = [Bool](repeating: false, count: 15)
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -45,6 +46,8 @@ class EateriesTableViewController: UITableViewController {
         cell.thumbnailImageView.clipsToBounds = true
         cell.nameLabel.text = restaurantNames[indexPath.row]
         
+        cell.accessoryType =  self.restorauntIsVisited[indexPath.row] ? .checkmark : .none
+        
         return cell
     }
     
@@ -62,15 +65,20 @@ class EateriesTableViewController: UITableViewController {
         }
         
         let cancel = UIAlertAction(title: "Отмена", style: .cancel, handler: nil)
-        let isVisited = UIAlertAction(title: "Я тут был", style: .default) {
+        let isVisibleTitle = self.restorauntIsVisited[indexPath.row] ? "Я не был здесь" : " Я был здесь"
+        let isVisited = UIAlertAction(title: isVisibleTitle, style: .default) {
             (action) in
             let cell = tableView.cellForRow(at: indexPath)
-            cell?.accessoryType = .checkmark
+            
+            self.restorauntIsVisited[indexPath.row] = !self.restorauntIsVisited[indexPath.row]
+            cell?.accessoryType = self.restorauntIsVisited[indexPath.row] ? .checkmark : .none
         }
         ac.addAction(cancel)
         ac.addAction(call)
         ac.addAction(isVisited)
         present(ac, animated: true, completion: nil)
+        
+        tableView.deselectRow(at: indexPath, animated: true)
     }
   
     
