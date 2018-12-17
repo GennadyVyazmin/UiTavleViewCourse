@@ -48,8 +48,9 @@ class EateriesTableViewController: UITableViewController {
         return cell
     }
     
-    func showAlert(index: Int) {
-        
+
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let ac = UIAlertController(title: nil, message: "Выберите действие", preferredStyle: .actionSheet)
         let call = UIAlertAction(title: "Позвонить: +7(347)111-111\(index)", style: .default){
             (action: UIAlertAction) -> Void in
@@ -61,28 +62,19 @@ class EateriesTableViewController: UITableViewController {
         }
         
         let cancel = UIAlertAction(title: "Отмена", style: .cancel, handler: nil)
-        
+        let isVisited = UIAlertAction(title: "Я тут был", style: .default) {
+            (action) in
+            let cell = tableView.cellForRow(at: indexPath)
+            cell?.accessoryType = .checkmark
+        }
         ac.addAction(cancel)
         ac.addAction(call)
+        ac.addAction(isVisited)
         present(ac, animated: true, completion: nil)
-        
     }
+  
     
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        showAlert(index: indexPath.row)
-    }
     
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
+    
   
 }
