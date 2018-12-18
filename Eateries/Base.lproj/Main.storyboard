@@ -109,7 +109,7 @@
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 </imageView>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="38" id="3ur-2R-nUQ" customClass="DetailTableViewCell" customModule="Eateries" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="Cell" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Cell" rowHeight="38" id="3ur-2R-nUQ" customClass="DetailTableViewCell" customModule="Eateries" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="333" width="375" height="38"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="3ur-2R-nUQ" id="23i-KG-58Q">
@@ -145,10 +145,14 @@
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="keyLabel" destination="sJp-nk-X40" id="Ovs-cm-mwr"/>
-                                            <outlet property="valueLabel" destination="VPF-7k-6cs" id="hc1-5r-E3M"/>
+                                            <outlet property="valueLabel" destination="VPF-7k-6cs" id="4Da-77-arL"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="8si-Mz-Qgd" id="h5D-E9-mh0"/>
+                                    <outlet property="delegate" destination="8si-Mz-Qgd" id="DSo-0S-3nr"/>
+                                </connections>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -161,6 +165,7 @@
                     </view>
                     <connections>
                         <outlet property="detailImageView" destination="ClC-oA-nhh" id="kVh-xN-w9K"/>
+                        <outlet property="detailTableView" destination="mxa-kT-uI0" id="SwQ-rV-ROn"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0jJ-Za-C4i" userLabel="First Responder" sceneMemberID="firstResponder"/>
