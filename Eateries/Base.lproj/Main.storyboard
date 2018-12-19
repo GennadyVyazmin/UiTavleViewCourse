@@ -117,16 +117,16 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <stackView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" alignment="center" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="RaU-hG-vA7">
-                                                    <rect key="frame" x="0.0" y="7.5" width="375" height="23"/>
+                                                    <rect key="frame" x="20" y="7.5" width="335" height="23"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Key" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sJp-nk-X40">
-                                                            <rect key="frame" x="0.0" y="0.0" width="122.5" height="23"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="109" height="23"/>
                                                             <fontDescription key="fontDescription" name="AppleSDGothicNeo-SemiBold" family="Apple SD Gothic Neo" pointSize="19"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" insetsLayoutMarginsFromSafeArea="NO" text="Value" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VPF-7k-6cs">
-                                                            <rect key="frame" x="130.5" y="0.5" width="244.5" height="22"/>
+                                                            <rect key="frame" x="117" y="0.5" width="218" height="22"/>
                                                             <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="18"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
@@ -138,8 +138,8 @@
                                                 </stackView>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="RaU-hG-vA7" firstAttribute="leading" secondItem="23i-KG-58Q" secondAttribute="leading" id="90M-Cx-TbD"/>
-                                                <constraint firstAttribute="trailing" secondItem="RaU-hG-vA7" secondAttribute="trailing" id="Rdd-GW-GwY"/>
+                                                <constraint firstItem="RaU-hG-vA7" firstAttribute="leading" secondItem="23i-KG-58Q" secondAttribute="leading" constant="20" id="90M-Cx-TbD"/>
+                                                <constraint firstAttribute="trailing" secondItem="RaU-hG-vA7" secondAttribute="trailing" constant="20" id="Rdd-GW-GwY"/>
                                                 <constraint firstItem="RaU-hG-vA7" firstAttribute="centerY" secondItem="23i-KG-58Q" secondAttribute="centerY" id="vdz-o2-aCl"/>
                                             </constraints>
                                         </tableViewCellContentView>

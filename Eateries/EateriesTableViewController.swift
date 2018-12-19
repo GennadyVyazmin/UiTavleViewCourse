@@ -27,9 +27,14 @@ class EateriesTableViewController: UITableViewController {
         Restaurant(name: "Бочка", type: "ресторан", location:  "Уфа", image: "bochka.jpg", isVisited: false),
         Restaurant(name: "Piplz", type: "Bar", location: "Blaga", image: "", isVisited: true)]
 
+    
+    override func viewWillAppear(_ animated: Bool) {
+        navigationController?.hidesBarsOnSwipe = true
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
         
@@ -129,7 +134,7 @@ class EateriesTableViewController: UITableViewController {
         if segue.identifier == "detailSegue" {
             if let indexPath = tableView.indexPathForSelectedRow {
                 let dvc = segue.destination as! DetailViewController
-                dvc.imageName = self.restaurants[indexPath.row].image
+                dvc.restourant = self.restaurants[indexPath.row]
             }
         }
     }
